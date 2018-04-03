@@ -71,7 +71,7 @@ IP address comes from the router
 somewhat hierarchical
 gives proximal location, kinda
 your IP address (within the same ISP) will be pretty close to your neighbors
-Internet engineering task force doles out addresses to the ISPs
+Internet engineering task force (IETF) doles out addresses to the ISPs
 ISPs are given a range of IPs that they can dole out
 ISPs split them up and give them to consumers
 ISPs will have localized routers to serve customers in the same geographic area
@@ -86,3 +86,88 @@ At the router level you get 1 IP, like a front door
 Behind that each device gets a chunk of the internet
 NAT (network address traversal)
 NAT hole-punching
+
+# Networking - DNS
+DNS maps a human readable name to an IP address
+You ask for an IP address, they're assigned. Same with domain names.
+13 servers on the planet that you get your domain name registered on.
+multiple names mapped to the same ip address
+but only one ip address per name
+  technically this can be split up by geographic location
+
+# Networking - URLs
+normal style:
+https://www.appacademy.io/immersive/courses
+
+protocol - language we're talking in (http, https, etc. -this also gives the port number)
+subdomains
+DNS name
+path
+
+this style:
+postgres://myuser:mypass@db.coolsite.com:5432/mydb
+fullest url you can see - defines what content your server is delivering to the client
+
+format of the communication is called a protocol
+  email is different from a webpage
+
+# Scaling a web application
+What do you look for for a bottleneck in a large application
+  usually the database is the bottleneck
+
+for any given piece of datum there should be a single source of truth => database is the hardest part to scale
+
+# Application servers
+rails s will lose scalabilty very very fast, it is single threaded
+Rack Middleware lends scalability to rails s
+Rack standard way for a web request to come into a rack server and then sends it to a rack application
+
+
+Layer before your application that is resonsible for simple system level routing
+so you can use https instead of http
+manipulate web traffic only pass the stuff we care about to our server
+web server can do it way better than your application
+web server handles what goes to what port, don't try to do this at home, use apache or nginx
+
+Next step:
+Move DB to its own server.
+RDS - one amazon server for databases
+heroku/postgres does it for you
+
+# Database
+to speed up databases
+  add indexes
+  clean up your queries
+  add master/slave interfacing
+  split the data - shard
+  asyncronous database management
+
+# Load Balancer
+Network layer - takes 1 packet in and send it to one of the different servers
+For huge applications you use a hardware load balancer, anything that shaves time is incredibly valuable
+  less time -> less cycles -> less hardware required
+
+Load balancer is the point of security, if you have encryption at each layer it's inefficient
+Load balancer faces the public so its the end of security, if you get past it you're in the money
+
+
+separate the web server and the web application.
+Allows you to optimize them independently
+Server can direct traffic to the appropriate web application (think microservices)
+
+# CDN - content delivery network
+images don't change much, tell browser to keep a copy of the image locally
+many steps along the way can cache the static content so the user doesn't need to wait for it
+cache control headers
+
+
+## check video here, losing grasp
+jobrunners
+these guys run seldom used processes in the background and move them around
+
+queue
+
+cache
+keep something local so you don't need to go make another api call
+
+# summary
