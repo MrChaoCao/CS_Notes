@@ -30,3 +30,5 @@
 ## 500 level Server Error
 * 500 Internal Server Error
   + The server has encountered an unexpected condition which has prevented it from filling the request. Generic server error.
+
+  [Resources](http://www.restapitutorial.com/httpstatuscodes.html)
