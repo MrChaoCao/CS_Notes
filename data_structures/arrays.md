@@ -17,3 +17,26 @@ Any cell is at location: address + index * 8
 Get and Set are constant operations. They just use the above formula.
 
 Aside: 8 bytes = 64 Bits
+
+# Dynamic Arrays
+When you create a new dynamic array you first create a new static array
+
+capacity - the size of the initial static array being created
+
+count - the number of items in our dynamic array
+
+Methods
+  push - add element / increment count
+  pop - decrement count
+  unshift
+  shift
+
+If we grow the array past the capacity we will need to make a new array
+  copy the contents of the original array
+  add the new element to an empty space
+  we double the capacity every time we need to push
+    amortized time complexity
+
+Unshift and Shift
+  Right now if we manipulate the beginning we throw off our whole count
+  Shift - decrement count, increment starting address
