@@ -61,3 +61,12 @@ Unshift and Shift
   With this re-organization of elements, it becomes hard to find the element at an index
     We solve this by taking the modulo of the index added to the start by the capacity
     new index = (start + index) % capacity
+
+## time complexity of operations
+  + push
+    + O(1) amortized over n items
+
+## time complexity of built in ruby array operations
+  + inject
+    + O(n) * times complexity of block passed in
+  
