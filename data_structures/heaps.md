@@ -53,3 +53,27 @@ Heapify down:
   Root swaps with its smallest child (left if they're equivalent)
   Continue swapping until we have no chilren, or root is larger than children
   time complexity: O(log(n))
+
+
+## Heap Implementation
+Implement as an array.
+
+Indexing:
+  + To find children.
+    + 2 * (parent index) + 1,
+  + To find parents
+    + (child index - 1) / 2
+
+Insert
+  + Push value to end of array
+  + Compare to parent
+    + if parent > child
+    + swap parent and child  
+
+Extract
+  + Swap array.first with array.last
+  + Array.pop
+  + Heapify down:
+    + Compare with children
+      + if parent > child
+      + swap parent and child
