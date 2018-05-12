@@ -67,7 +67,7 @@ Indexing:
 Insert
   + Push value to end of array
   + Compare to parent
-    + if parent > child
+    + if parent > child, Heapify up
     + swap parent and child  
 
 Extract
