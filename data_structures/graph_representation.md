@@ -26,4 +26,7 @@ Frequently performed operations
 Recalling
 0 <= |E| <= V(V-1) if directed or V(V-1) / 2 if undirected
 
-Time cost is inefficient if the time complexity scales with |E|. 
+Time cost is inefficient if the time complexity scales with |E|.
+
+## Source
+(Graph representation part 01 - Edge list)[https://www.youtube.com/watch?v=ZdY1Fp9dKzs] By mycodeschool
