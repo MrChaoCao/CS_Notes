@@ -35,3 +35,7 @@ When b is declared on line 6 and addTwo is invoked we
   the local execution environment of addTwo is destroyed only keeping 5
 
 ## Lexical scope
+
+
+## Source
+https://medium.com/dailyjs/i-never-understood-javascript-closures-9663703368e8
